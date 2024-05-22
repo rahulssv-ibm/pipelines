@@ -24,7 +24,7 @@ deploymentSpec:
     exec-download:
       container:
         args:
-        - gsutil cp {{$.inputs.parameters['url']}} {{$.outputs.parameters['downloaded'].output_file}}
+        - cp {{$.inputs.parameters['url']}} {{$.outputs.parameters['downloaded'].output_file}}
         command:
         - sh
         - -c

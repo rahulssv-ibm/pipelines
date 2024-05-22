@@ -146,7 +146,7 @@ OUTPUT_GCS_PATH = GCS_WORKING_DIR + '/train/output/'
 %%bash -s "$TRAINER_GCS_PATH"
 pushd ./cloudml-samples-master/census/estimator/
 python setup.py sdist
-gsutil cp dist/preprocessing-1.0.tar.gz $1
+cp dist/preprocessing-1.0.tar.gz $1
 popd
 rm -fr ./cloudml-samples-master/ ./master.zip ./dist
 ```

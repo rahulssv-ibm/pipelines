@@ -36,7 +36,7 @@ implementation:
     - -c
     - |
       set -e -x
-      echo "$(($0+$1))" | gsutil cp - "$2"
+      echo "$(($0+$1))" | cp - "$2"
     - {inputValue: op1}
     - {inputValue: op2}
     - {outputPath: sum}

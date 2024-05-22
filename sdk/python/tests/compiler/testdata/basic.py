@@ -57,7 +57,7 @@ class SaveMessageOp(dsl.ContainerOp):
             image='google/cloud-sdk',
             command=['sh', '-c'],
             arguments=[
-                'echo %s | tee /tmp/results.txt | gsutil cp /tmp/results.txt %s'
+                'echo %s | tee /tmp/results.txt | cp /tmp/results.txt %s'
                 % (message, output_path)
             ])
 

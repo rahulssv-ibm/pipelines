@@ -244,7 +244,7 @@ and then "Retry", because after waiting for previous step, artifacts are now rea
 
     ```bash
     pip3 install twine --user
-    gsutil cp gs://ml-pipeline/release/$VERSION/kfp.tar.gz kfp-$VERSION.tar.gz
+    cp gs://ml-pipeline/release/$VERSION/kfp.tar.gz kfp-$VERSION.tar.gz
     python3 -m twine upload kfp-$VERSION.tar.gz
     ```
 

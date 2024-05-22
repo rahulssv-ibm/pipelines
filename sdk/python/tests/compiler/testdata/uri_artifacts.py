@@ -46,7 +46,7 @@ implementation:
     - -c
     - |
       set -e -x
-      echo "$0" | gsutil cp - "$1"
+      echo "$0" | cp - "$1"
     - {inputValue: text}
     - {outputUri: output_gcs_path}
 """)

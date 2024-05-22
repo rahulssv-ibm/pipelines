@@ -22,7 +22,7 @@ def gcs_download_op(url):
         name='GCS - Download',
         image='google/cloud-sdk:279.0.0',
         command=['sh', '-ce'],
-        arguments=['gsutil cp $0 $1 && cat $1', url, '/tmp/results.txt'],
+        arguments=['cp $0 $1 && cat $1', url, '/tmp/results.txt'],
         file_outputs={
             'data': '/tmp/results.txt',
         }

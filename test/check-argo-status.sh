@@ -69,7 +69,7 @@ fi
 echo "Argo workflow finished successfully."
 if [[ -n "$TEST_RESULT_FOLDER" ]]; then
   echo "Copy test result"
-  gsutil cp -r "${TEST_RESULTS_GCS_DIR}"/* "${ARTIFACTS}" || true
+  cp -r "${TEST_RESULTS_GCS_DIR}"/* "${ARTIFACTS}" || true
 fi
 
 echo "=========Main workflow=============="

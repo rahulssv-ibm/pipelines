@@ -374,7 +374,7 @@ spec:
       - -c
       - |
         set -e -x
-        echo "$0" | gsutil cp - "$1"
+        echo "$0" | cp - "$1"
       - '{{$.inputs.parameters[''text'']}}'
       - '{{$.outputs.artifacts[''output_gcs_path''].uri}}'
       command: [/kfp-launcher/launch, --mlmd_server_address, $(METADATA_GRPC_SERVICE_HOST),

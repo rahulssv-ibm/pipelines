@@ -29,7 +29,7 @@ implementation:
                 gsutil -m cp -r "$uri" "$output_path"
             else
                 mkdir -p "$output_path" # When source path is a directory, gsutil requires the destination to also be a directory
-                gsutil -m rsync -r "$uri" "$output_path" # gsutil cp has different path handling than Linux cp. It always puts the source directory (name) inside the destination directory. gsutil rsync does not have that problem.
+                gsutil -m rsync -r "$uri" "$output_path" # cp has different path handling than Linux cp. It always puts the source directory (name) inside the destination directory. gsutil rsync does not have that problem.
             fi
         - inputValue: GCS path
         - outputPath: Data

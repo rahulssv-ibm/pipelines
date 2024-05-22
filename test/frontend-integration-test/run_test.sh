@@ -103,7 +103,7 @@ JUNIT_TEST_RESULT=junit_FrontendIntegrationTestOutput.xml
 
 if [[ "$REMOTE_RUN" != "true" ]]; then
   echo "Copy test result to GCS ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}"
-  gsutil cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
+  cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
 fi
 
 exit $TEST_EXIT_CODE

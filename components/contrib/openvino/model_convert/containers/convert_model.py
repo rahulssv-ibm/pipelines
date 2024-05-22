@@ -58,7 +58,7 @@ def main():
         print("return code", return_code)
 
     # Downloading input model or GCS folder with a model to current folder
-    command = "gsutil cp -r " + args.input_path + " ."
+    command = "cp -r " + args.input_path + " ."
     print("gsutil download command", command)
     return_code = subprocess.call(command, shell=True)
     print("return code", return_code)
@@ -82,11 +82,11 @@ def main():
         print("Error, model optimization failed")
         exit(1)
 
-    command = "gsutil cp " + XML + " " + os.path.join(args.output_path, os.path.split(XML)[1])
+    command = "cp " + XML + " " + os.path.join(args.output_path, os.path.split(XML)[1])
     print("gsutil upload command", command)
     return_code = subprocess.call(command, shell=True)
     print("return code", return_code)
-    command = "gsutil cp " + BIN + " " + os.path.join(args.output_path, os.path.split(BIN)[1])
+    command = "cp " + BIN + " " + os.path.join(args.output_path, os.path.split(BIN)[1])
     print("gsutil upload command", command)
     return_code = subprocess.call(command, shell=True)
     print("return code", return_code)

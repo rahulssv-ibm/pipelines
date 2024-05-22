@@ -20,7 +20,7 @@ def download(url: str, downloaded: dsl.OutputPath(str)):
     return dsl.ContainerSpec(
         image='google/cloud-sdk',
         command=['sh', '-c'],
-        args=[f'gsutil cp {url} {downloaded}'],
+        args=[f'cp {url} {downloaded}'],
     )
 
 

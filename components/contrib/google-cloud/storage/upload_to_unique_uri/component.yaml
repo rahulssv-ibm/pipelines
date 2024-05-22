@@ -20,7 +20,7 @@ implementation:
             if [ -n "${GOOGLE_APPLICATION_CREDENTIALS}" ]; then
                 gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
             fi
-            gsutil cp -r "$0" "$1"
+            cp -r "$0" "$1"
             mkdir -p "$(dirname "$2")"
             echo "$1" > "$2"
         - inputPath: Data
