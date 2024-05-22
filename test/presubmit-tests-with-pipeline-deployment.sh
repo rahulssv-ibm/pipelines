@@ -29,12 +29,12 @@ usage()
     [-h help]"
 }
 
-PLATFORM=gcp
+PLATFORM=minikube
 PROJECT=ml-pipeline-test
 TEST_RESULT_BUCKET=ml-pipeline-test
 TIMEOUT_SECONDS=2700 # 45 minutes
 NAMESPACE=kubeflow
-ENABLE_WORKLOAD_IDENTITY=true
+ENABLE_WORKLOAD_IDENTITY=false
 IS_INTEGRATION_TEST=false
 
 while [ "$1" != "" ]; do
@@ -80,8 +80,8 @@ COMMIT_SHA="$(git rev-parse HEAD)"
 # Paths are using commit sha, instead of pull sha, because tests may be rerun with the same PR
 # commit, but merged on a different master version. When this happens, we cannot reuse cached
 # results on the previous test run.
-GCR_IMAGE_BASE_DIR=gcr.io/${PROJECT}/${COMMIT_SHA}
-TEST_RESULTS_GCS_DIR=gs://${TEST_RESULT_BUCKET}/${COMMIT_SHA}/${TEST_RESULT_FOLDER}
+GCR_IMAGE_BASE_DIR=na.artifactory.swg-devops.com/sys-linux-power-team-ftp3distro-docker-images-docker-local/kubeflow
+TEST_RESULTS_GCS_DIR=/root/valen/kubeflow
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 
 # Configure `time` command output format.
@@ -96,11 +96,11 @@ echo "test env prepared"
 
 # We don't wait for image building here, because cluster can be deployed in
 # parallel so that we save a few minutes of test time.
-time source "${DIR}/build-images.sh"
-echo "KFP images cloudbuild jobs submitted"
+#time source "${DIR}/build-images.sh"
+#echo "KFP images cloudbuild jobs submitted"
 
-time source "${DIR}/deploy-cluster.sh"
-echo "cluster deployed"
+#time source "${DIR}/deploy-cluster.sh"
+#echo "cluster deployed"
 
 # Install Argo CLI and test-runner service account
 time source "${DIR}/install-argo.sh"

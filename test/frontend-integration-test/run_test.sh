@@ -65,9 +65,9 @@ if [[ "$REMOTE_RUN" != "true" ]]; then
       usage
       exit 1
   fi
-  if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
-    gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
-  fi
+  # if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
+  #   gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
+  # fi
 fi
 
 npm install

@@ -62,9 +62,9 @@ if [ -z "$RESULTS_GCS_DIR" ]; then
     exit 1
 fi
 
-if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
-  gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
-fi
+# if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
+#   gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
+# fi
 
 GITHUB_REPO=kubeflow/pipelines
 BASE_DIR=/go/src/github.com/${GITHUB_REPO}
@@ -96,6 +96,6 @@ fi
 < "$LOG_FILE" go-junit-report > "${JUNIT_TEST_RESULT}"
 
 echo "Copy test result to GCS ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}"
-gsutil cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
+cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
 
 exit $TEST_EXIT_CODE

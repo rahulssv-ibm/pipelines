@@ -16,13 +16,13 @@
 
 set -x
 
-ZONE=${ZONE:-us-west1-b}
-if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
-  # activating the service account
-  gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
-fi
-gcloud config set compute/zone ${ZONE}
-gcloud config set core/project ${PROJECT}
+# ZONE=${ZONE:-us-west1-b}
+# if [[ ! -z "${GOOGLE_APPLICATION_CREDENTIALS}" ]]; then
+#   # activating the service account
+#   gcloud auth activate-service-account --key-file="${GOOGLE_APPLICATION_CREDENTIALS}"
+# fi
+# gcloud config set compute/zone ${ZONE}
+# gcloud config set core/project ${PROJECT}
 
 #Uploading the source code to GCS:
 local_code_archive_file=$(mktemp)
@@ -31,4 +31,4 @@ code_archive_prefix="${TEST_RESULTS_GCS_DIR}/source_code"
 remote_code_archive_uri="${code_archive_prefix}_${PULL_BASE_SHA}_${date_string}.tar.gz"
 
 tar -czf "$local_code_archive_file" .
-gsutil cp "$local_code_archive_file" "$remote_code_archive_uri"
+cp "$local_code_archive_file" "$remote_code_archive_uri"

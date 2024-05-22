@@ -81,6 +81,6 @@ go test -v ./... -namespace ${NAMESPACE} -args -runIntegrationTests=true |& tee 
 < "$LOG_FILE" go-junit-report > "${JUNIT_TEST_RESULT}"
 
 echo "Copy test result to GCS ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}"
-gsutil cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
+cp ${JUNIT_TEST_RESULT} ${RESULTS_GCS_DIR}/${JUNIT_TEST_RESULT}
 
 exit $TEST_EXIT_CODE
