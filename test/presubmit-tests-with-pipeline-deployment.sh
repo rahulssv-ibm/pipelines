@@ -81,7 +81,7 @@ COMMIT_SHA="$(git rev-parse HEAD)"
 # commit, but merged on a different master version. When this happens, we cannot reuse cached
 # results on the previous test run.
 GCR_IMAGE_BASE_DIR=na.artifactory.swg-devops.com/sys-linux-power-team-ftp3distro-docker-images-docker-local/kubeflow
-TEST_RESULTS_GCS_DIR=gs://${TEST_RESULT_BUCKET}/${COMMIT_SHA}/${TEST_RESULT_FOLDER}
+TEST_RESULTS_GCS_DIR=/root/valen/kubeflow
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" > /dev/null && pwd)"
 
 # Configure `time` command output format.
