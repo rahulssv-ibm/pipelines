@@ -11,4 +11,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create k8s Kind Cluster
-        run: echo "hello world";
+        run: ls /var/lib;
