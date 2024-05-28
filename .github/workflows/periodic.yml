@@ -1,8 +1,6 @@
 name: Periodic Functional Tests
 
-on:
-  schedule:
-    - cron: '*/1 * * * *' # Run every 5 minutes
+on: [push]
 
 jobs:
   run_tests:
