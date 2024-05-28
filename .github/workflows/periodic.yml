@@ -9,4 +9,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create k8s Kind Cluster
-        run: ping 80a866bb.nip.io
+        run: ping 80a866bb.nip.io -w 5
