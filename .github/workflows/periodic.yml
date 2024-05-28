@@ -9,4 +9,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create k8s Kind Cluster
-        run: ls /var/lib;
+        run: ls ~/.docker/;
