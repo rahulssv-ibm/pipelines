@@ -9,4 +9,4 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Create k8s Kind Cluster
-        run: ssh -i ${{ secrets.SSH_KEY }} -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@$80a866bb.nip.io /root/k8s-ansible-automation/create-cluster.sh
+        run: ping 80a866bb.nip.io
