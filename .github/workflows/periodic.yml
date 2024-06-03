@@ -1,6 +1,6 @@
 name: Periodic Functional Tests
 
-on: [push]
+on: [ push, workflow_dispatch ]
 
 jobs:
   run_tests:
@@ -9,10 +9,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Execute SSH commmands on remote server VCM
-        uses: JimCronqvist/action-ssh@master
-        with:
-          username: 'root'
-          hosts: 130.198.103.76
-          privateKey: ${{ secrets.SSH_KEY }}
-          port: 22
-          command: ls 
+        run: |
+
+          mkdir -p /home/runner/.ssh/
+          echo "${{ secrets.SSH_KEY }}" > /home/runner/.ssh/github_actions
+          chmod 0600 /home/runner/.ssh/github_actions
+          ssh -vvv -i /home/runner/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.103.76 'ls'
