@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Create k8s Kind Cluster
-        run: ping 130.198.103.76 -w 5
+      - name: Execute SSH commmands on remote server
+        uses: JimCronqvist/action-ssh@master
+         with:
+           hosts: '130.198.103.76'
+           privateKey: ${{ secrets.SSH_KEY }}
+           command: ls 
