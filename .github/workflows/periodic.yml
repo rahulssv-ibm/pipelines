@@ -11,6 +11,8 @@ jobs:
       - name: Execute SSH commmands on remote server
         uses: JimCronqvist/action-ssh@master
         with:
-          hosts: 'root@130.198.103.76:22'
+          username: 'root'
+          hosts: 130.198.103.76
           privateKey: ${{ secrets.SSH_KEY }}
+          port: 22
           command: ls 
