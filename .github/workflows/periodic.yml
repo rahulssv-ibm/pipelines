@@ -18,4 +18,4 @@ jobs:
       - name: Execute SSH commmands on remote server VCM
         run: |
 
-          ls /root/.docker/
+          ls /root/
