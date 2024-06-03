@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Execute SSH commmands on remote server
         uses: JimCronqvist/action-ssh@master
-         with:
-           hosts: '130.198.103.76'
-           privateKey: ${{ secrets.SSH_KEY }}
-           command: ls 
+        with:
+          hosts: '130.198.103.76'
+          privateKey: ${{ secrets.SSH_KEY }}
+          command: ls 
