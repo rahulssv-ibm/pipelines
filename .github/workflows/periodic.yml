@@ -19,4 +19,5 @@ jobs:
         run: |
           sudo mkdir -p /root/.kube
           sudo scp -i /home/runner/.ssh/github_actions -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@130.198.121.194:/root/.kube/config /root/.kube
-          kubectl get pods 
+          sudo cat ~/.kube/config
+          sudo kubectl get pods 
