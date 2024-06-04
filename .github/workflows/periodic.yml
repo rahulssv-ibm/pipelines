@@ -17,7 +17,7 @@ jobs:
       #     ssh -vvv -i /home/runner/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/k8s-ansible-automation/create-cluster.sh'
       - name: Execute SSH commands on ubuntu server
         run: |
-          sudo mkdir -p /root/.kube
-          sudo scp -i /home/runner/.ssh/github_actions -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@130.198.121.194:/root/.kube/config /root/.kube
-          sudo cat root/.kube/config
-          sudo kubectl get pods 
+          smkdir -p ~/.kube
+          scp -i /home/runner/.ssh/github_actions -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@130.198.121.194:/root/.kube/config ~/.kube
+          cat ~/.kube/config
+          kubectl get pods 
