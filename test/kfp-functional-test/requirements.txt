@@ -47,7 +47,7 @@ kfp-pipeline-spec==0.1.13
     # via kfp
 kfp-server-api==2.0.0
     # via kfp
-kfp==1.8.16
+kfp==1.8.11
     # via -r requirements.in
 kubernetes==11.0.0
     # via kfp
