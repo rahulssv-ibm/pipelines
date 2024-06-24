@@ -109,3 +109,4 @@ websocket-client==0.57.0
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
+# testing 
