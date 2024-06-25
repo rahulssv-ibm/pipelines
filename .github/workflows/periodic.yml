@@ -16,6 +16,7 @@ jobs:
 
           sudo mkdir -p /home/runner/.ssh/
           sudo echo "${{ secrets.SSH_KEY }}" > /home/runner/.ssh/github_actions
+          ls /home/runner/.ssh/
           sudo chmod 0600 /home/runner/.ssh/github_actions
       #     ssh -vvv -i /home/runner/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/k8s-ansible-automation/create-cluster.sh'
       - name: Setup ppc64le k8s cluster
