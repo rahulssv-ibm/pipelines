@@ -15,6 +15,6 @@
 sudo apt-get update -y
 sudo apt --no-install-recommends -y -q install curl
 source_root="$(pwd)"
-python3 -m pip install -r "${source_root}/test/kfp-functional-test/requirements.txt"
-HOST="130.198.121.194"
+python3 -m pip3 install -r "${source_root}/test/kfp-functional-test/requirements.txt"
+HOST="https://$(curl https://raw.githubusercontent.com/kubeflow/testing/master/test-infra/kfp/endpoint)"
 python3 "${source_root}/test/kfp-functional-test/run_kfp_functional_test.py" --host "${HOST}"
