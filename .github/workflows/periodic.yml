@@ -14,19 +14,19 @@ jobs:
       - name: Execute SSH commmands on remote server 
         run: |
 
-          sudo mkdir -p /home/runner/.ssh/
-          sudo echo "${{ secrets.SSH_KEY }}" > /home/runner/.ssh/github_actions
+          sudo mkdir -p /home/ubuntu/.ssh/
+          sudo echo "${{ secrets.SSH_KEY }}" > /home/ubuntu/.ssh/github_actions
           ls /home/runner/.ssh/
-          sudo chmod 0600 /home/runner/.ssh/github_actions
+          sudo chmod 0600 /home/ubuntu/.ssh/github_actions
       #     ssh -vvv -i /home/runner/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/k8s-ansible-automation/create-cluster.sh'
       - name: Setup ppc64le k8s cluster
         run: |
           sudo mkdir -p ~/.kube
-          sudo scp -i /home/runner/.ssh/github_actions -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@130.198.121.194:/root/.kube/config ~/.kube
+          sudo scp -i /home/ubuntu/.ssh/github_actions -o MACs=hmac-sha2-256 -o StrictHostKeyChecking=no -o LogLevel=ERROR -o UserKnownHostsFile=/dev/null root@130.198.121.194:/root/.kube/config ~/.kube
           cat ~/.kube/config
       - name: Run Functional Tests
         run: |
           
           log_dir=$(mktemp -d)
-          ssh -vvv -i /home/runner/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/valen/pipelines/test/kfp-functional-test/kfp-functional-test.sh'
+          ssh -vvv -i /home/ubuntu/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/valen/pipelines/test/kfp-functional-test/kfp-functional-test.sh'
     
