@@ -28,5 +28,5 @@ jobs:
         run: |
           
           log_dir=$(mktemp -d)
-          ssh -vvv -i /home/ubuntu/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/valen/pipelines/test/kfp-functional-test/kfp-functional-test.sh'
+          ssh -i /home/ubuntu/.ssh/github_actions -o KexAlgorithms=ecdh-sha2-nistp521 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@130.198.121.194 '/root/valen/pipelines/test/kfp-functional-test/kfp-functional-test.sh'
     
