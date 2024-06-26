@@ -6,11 +6,11 @@ jobs:
   run_tests:
     runs-on: self-hosted
     steps:
-      # - name: Test command
-      #   run: |
-      #     echo "hello world"
       - name: Checkout repository
         uses: actions/checkout@v3
+      - name: Create k8s Kind Cluster
+        run: |
+          kind create cluster --image quay.io/kviswana/kind-node:v1.30.2
       - name: Run Functional Tests
         run: |
           log_dir=$(mktemp -d)
