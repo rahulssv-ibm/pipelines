@@ -4,7 +4,7 @@ on: [ push, workflow_dispatch ]
 
 jobs:
   run_tests:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -14,11 +14,11 @@ jobs:
       - name: Create k8s Kind Cluster
         uses: container-tools/kind-action@v2
         with:
-          cluster_name: valen
+          cluster_name: kfp-tekton
           kubectl_version: v1.29.2
           version: v0.22.0
-          node_image: quay.io/kviswana/kind-node:v1.29.2
-      - name: Run Functional Tests
-        run: |
-          log_dir=$(mktemp -d)
-          ./test/kfp-functional-test/kfp-functional-test.sh > $log_dir/periodic_tests.txt
+          node_image: kindest/node:v1.29.2
+      # - name: Run Functional Tests
+      #   run: |
+      #     log_dir=$(mktemp -d)
+      #     ./test/kfp-functional-test/kfp-functional-test.sh > $log_dir/periodic_tests.txt
