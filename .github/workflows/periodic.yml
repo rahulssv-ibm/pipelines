@@ -11,6 +11,9 @@ jobs:
       # - name: Create k8s Kind Cluster
       #   run: |
       #     sudo kind create cluster --image quay.io/kviswana/kind-node:v1.30.2
+      - name: Find the user
+        run: |
+          whoami
       - name: Create k8s Kind Cluster
         uses: container-tools/kind-action@v2
         with:
