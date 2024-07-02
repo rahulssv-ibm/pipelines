@@ -20,7 +20,7 @@ jobs:
           cluster_name: kfp-tekton
           kubectl_version: v1.29.2
           version: v0.22.0
-          node_image: kindest/node:v1.29.2
+          node_image: quay.io/kviswana/kind-node:v1.30.2
       # - name: Run Functional Tests
       #   run: |
       #     log_dir=$(mktemp -d)
