@@ -9,6 +9,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Docker
+        run: |
+         sudo docker info
+         docker info
+
       - name: Create k8s Kind Cluster
         uses: rahulssv-ibm/kind-action@ppc64le
         with:
