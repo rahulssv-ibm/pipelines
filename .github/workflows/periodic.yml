@@ -8,15 +8,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      # - name: Create k8s Kind Cluster
-      #   run: |
-      #     sudo kind create cluster --image quay.io/kviswana/kind-node:v1.30.2
-      - name: ubuntu id
-        run: |
-          id ubuntu
-          sudo chmod 666 /var/run/docker.sock
+
       - name: Create k8s Kind Cluster
-        uses: container-tools/kind-action@v2
+        uses: rahulssv-ibm/kind-action@ppc64le
         with:
           cluster_name: kfp-tekton
           kubectl_version: v1.29.2
