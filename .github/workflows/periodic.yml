@@ -7,14 +7,13 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Checkout repository
-        id: ubuntu
         uses: actions/checkout@v4
       # - name: Create k8s Kind Cluster
       #   run: |
       #     sudo kind create cluster --image quay.io/kviswana/kind-node:v1.30.2
-      - name: Find the user
+      - name: ubuntu id
         run: |
-          whoami
+          id ubuntu
       - name: Create k8s Kind Cluster
         uses: container-tools/kind-action@v2
         with:
