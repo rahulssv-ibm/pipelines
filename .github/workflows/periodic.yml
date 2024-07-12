@@ -10,8 +10,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create k8s Kind Cluster
-        uses: container-tools/kind-action@v2
-        # uses: rahulssv-ibm/kind-action@ppc64le
+        # uses: container-tools/kind-action@v2
+        uses: rahulssv-ibm/kind-action@ppc64le
         with:
           cluster_name: kfp-tekton
           kubectl_version: v1.29.2
